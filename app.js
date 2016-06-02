@@ -7,6 +7,8 @@ var regexStringCaptureBracket = /(\[.*?\])/g;
 var regexTrackMatch = /(CD) [0-9]* Track [0-9]*/g;
 var regexTrackMatch2 = /(CD) [0-9.0-9]* \/ MP3 [0-9]*/g;
 var regexSearchCd = /(CD) [0-9.0-9]*/g;
+var reqexDot = /[a-zA-Z]\./g;
+var regexQues = /[a-zA-Z]\?/g;
 var finalList = [];
 var task = [];
 
@@ -29,6 +31,9 @@ fs.readFile(inputFilePath, (err, data)=> {
                 result = result[0].split('/');
                 result = result[0].trim().replace(/CD/, '').replace(' ', '').split('.');
                 fName = 'CD ' + result[0] + ' Track ' + result[1];
+                fileData = fileData.replace(regexTrackMatch2,'');
+                fileData = fileData.replace('.','.\n');
+                fileData = fileData.split(reqexDot).join('.\n').split(regexQues).join('?\n');
                 finalList.push({
                     fileName: fName + '.txt',
                     fileData: fName + '\n' + fileData
