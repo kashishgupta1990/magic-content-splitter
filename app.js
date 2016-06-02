@@ -7,8 +7,8 @@ var regexStringCaptureBracket = /(\[.*?\])/g;
 var regexTrackMatch = /(CD) [0-9]* Track [0-9]*/g;
 var regexTrackMatch2 = /(CD) [0-9.0-9]* \/ MP3 [0-9]*/g;
 var regexSearchCd = /(CD) [0-9.0-9]*/g;
-var reqexDot = /[a-zA-Z]\./g;
-var regexQues = /[a-zA-Z]\?/g;
+var reqexDot = /\./g;
+var regexQues = /\?/g;
 var finalList = [];
 var task = [];
 
